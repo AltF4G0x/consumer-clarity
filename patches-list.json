@@ -2439,6 +2439,35 @@
       "options": []
     },
     {
+      "name": "Home settings shortcut",
+      "description": "Adds a draggable Clarity button to Talabat's home screen for direct access to the patch control center.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Keep screen on",
       "description": "Keeps the screen awake while Talabat's main activity is visible.",
       "default": false,
