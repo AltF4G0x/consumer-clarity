@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.2.0...v1.3.0) (2026-11-01)
+
+### ✨ New Features
+
+* Add SDK and WebView privacy controls ([12abc0b](https://github.com/AltF4G0x/consumer-clarity/commit/12abc0bee34359e601a93fab4b14fe4a543bfb0d))
+
 ## [1.2.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.1.1...v1.2.0) (2026-11-01)
 
 ### ✨ New Features
