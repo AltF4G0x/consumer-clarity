@@ -1,5 +1,122 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "0.0.0",
-  "patches": []
+  "version": "1.0.0",
+  "patches": [
+    {
+      "name": "Consistent restaurant and review sorting",
+      "description": "Sorts restaurants by organic placement, rating and ID, and reviews by date and ID. Requires Talabat 14.4.0 (2368) on ARM64.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Play license gate",
+      "description": "Skips the pairip license check and its repeated scheduler so the modified app can start without Google Play licensing. Other Google-dependent features are unchanged.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Braze in-app popups",
+      "description": "Prevents Braze promotional in-app messages from being queued or displayed. Functional app dialogs and push notifications are unchanged.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Reduce analytics tracking",
+      "description": "Disables confirmed Firebase, Adjust, Perseus and Braze event logging paths without blocking restaurant, checkout or order-tracking network requests.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
-  "created_at": "",
-  "description": "",
-  "download_url": "",
+  "created_at": "2026-11-01T14:05:30",
+  "description": "## 1.0.0 (2026-11-01)\n\n### ✨ New Features\n\n* Add Consumer Clarity patches for talabat ([43e807a](https://github.com/AltF4G0x/consumer-clarity/commit/43e807a09ea532e534d750310d8f1e1dd7e746f1))",
+  "download_url": "https://github.com/AltF4G0x/consumer-clarity/releases/download/v1.0.0/patches-1.0.0.mpp",
   "signature_download_url": "",
-  "version": ""
+  "version": "1.0.0"
 }
