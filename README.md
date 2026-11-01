@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.3.1-6f42c1.svg" /></a>
+  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.4.0-6f42c1.svg" /></a>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg" /></a>
   <a href="https://www.android.com/"><img alt="platform" src="https://img.shields.io/badge/platform-Android-3ddc84.svg" /></a>
   <a href="https://github.com/MorpheApp/morphe-manager"><img alt="Morphe" src="https://img.shields.io/badge/works%20with-Morphe-00b894.svg" /></a>
@@ -162,20 +162,20 @@ export ANDROID_NDK_HOME=/path/to/android-ndk
 ./gradlew buildAndroid
 ```
 
-The generated bundle is `patches/build/libs/patches-1.3.1.mpp`.
+The generated bundle is `patches/build/libs/patches-1.4.0.mpp`.
 
 Morphe Desktop requires Java 21:
 
 ```bash
 java -jar morphe-desktop-*-all.jar patch \
   --validate \
-  -p patches/build/libs/patches-1.3.1.mpp \
+  -p patches/build/libs/patches-1.4.0.mpp \
   com.talabat.xapk
 ```
 
 ## Verification and limitations
 
-All 76 patches were built and applied together with Morphe validation and no failed patches. The fully enabled APK opened Talabat and the categorized settings page, displayed all 76 catalog entries, exercised live switches and presets, removed the selected permissions, and activated both native sorting hooks without a new crash. Complete restaurant/review sorting behavior, every screen, and every patch's server-visible effect have not been exhaustively verified.
+All 92 patches were built and applied together with Morphe validation and no failed patches. The optimized APK opened Talabat and the categorized settings page, displayed all 92 catalog entries and the new Display controls, and had no new crash report. Earlier checks exercised live switches, presets, permission removals, and both native sorting hooks. Complete restaurant/review sorting behavior, every screen, and every patch's server-visible effect have not been exhaustively verified.
 
 Bugs and concrete feature requests belong in the [issue tracker](https://github.com/AltF4G0x/consumer-clarity/issues), with the talabat version and patch involved.
 
