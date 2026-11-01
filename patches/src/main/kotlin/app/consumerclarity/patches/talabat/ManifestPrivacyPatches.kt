@@ -8,9 +8,9 @@ private const val ANDROID_NS = "http://schemas.android.com/apk/res/android"
 private fun ResourcePatchContext.editManifest(action: (Element, Element) -> Unit) {
     decode("AndroidManifest.xml")
     document("AndroidManifest.xml").use { manifest ->
-        val document = manifest.ownerDocument
+        val root = manifest.getElementsByTagName("manifest").item(0) as Element
         val application = manifest.getElementsByTagName("application").item(0) as Element
-        action(document.documentElement, application)
+        action(root, application)
     }
 }
 

@@ -85,6 +85,22 @@ fun consumerBytecodePatch(
     })
 }
 
+fun consumerBuildBytecodePatch(
+    name: String,
+    description: String,
+    category: String,
+    block: BytecodePatchBuilder.() -> Unit,
+) = bytecodePatch(name, description, false) {
+    block()
+    compatibleWith(TALABAT_COMPATIBILITY)
+    dependsOn(resourcePatch {
+        dependsOn(settingsIntegrationPatch)
+        execute {
+            get(CATALOG_ASSET).registerSetting(name, name, description, category, kind = "build")
+        }
+    })
+}
+
 fun consumerResourcePatch(
     name: String,
     description: String,
