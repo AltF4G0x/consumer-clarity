@@ -73,6 +73,7 @@ fun consumerBytecodePatch(
     key: String = name,
     default: Boolean = false,
     defaultSetting: Boolean = true,
+    kind: String = "runtime",
     block: BytecodePatchBuilder.() -> Unit,
 ) = bytecodePatch(name, description, default) {
     block()
@@ -80,7 +81,7 @@ fun consumerBytecodePatch(
     dependsOn(resourcePatch {
         dependsOn(settingsIntegrationPatch)
         execute {
-            get(CATALOG_ASSET).registerSetting(key, name, description, category, default = defaultSetting)
+            get(CATALOG_ASSET).registerSetting(key, name, description, category, kind = kind, default = defaultSetting)
         }
     })
 }
@@ -105,13 +106,14 @@ fun consumerResourcePatch(
     name: String,
     description: String,
     category: String,
+    key: String = name,
     default: Boolean = false,
     action: ResourcePatchContext.() -> Unit,
 ) = resourcePatch(name, description, default) {
     compatibleWith(TALABAT_COMPATIBILITY)
     dependsOn(settingsIntegrationPatch)
     execute {
-        get(CATALOG_ASSET).registerSetting(name, name, description, category, kind = "build")
+        get(CATALOG_ASSET).registerSetting(key, name, description, category, kind = "build")
         action()
     }
 }

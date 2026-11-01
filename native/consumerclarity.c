@@ -153,6 +153,9 @@ static int preference_int(const char *key, int fallback) {
 
 static int sponsored_mode;
 static int review_sort_mode;
+static int restaurant_min_rating;
+static int review_min_rating;
+static int review_content_mode;
 static time_t preferences_timestamp;
 
 static void refresh_preferences() {
@@ -161,6 +164,9 @@ static void refresh_preferences() {
     preferences_timestamp = now;
     sponsored_mode = preference_int("sponsored_mode", 0);
     review_sort_mode = preference_int("review_sort_mode", 0);
+    restaurant_min_rating = preference_int("restaurant_min_rating", 0);
+    review_min_rating = preference_int("review_min_rating", 0);
+    review_content_mode = preference_int("review_content_mode", 0);
 }
 
 static int compare_reviews(const DartContext *context, uint64_t left, uint64_t right) {
@@ -203,12 +209,14 @@ static uint32_t *dart_list(const DartContext *context, uint64_t response, int32_
 
 static void sort_response(uint64_t response, uint64_t heap, uint64_t null_object, int vendors) {
     refresh_preferences();
-    if ((vendors ? sponsored_mode : review_sort_mode) == (vendors ? 2 : 3)) return;
+    int original_order = (vendors ? sponsored_mode : review_sort_mode) == (vendors ? 2 : 3);
     DartContext context = {.heap = heap, .null_ref = (uint32_t)null_object};
     int32_t count = 0;
     uint32_t *items = dart_list(&context, response, &count);
     if (items == NULL) return;
-    if (vendors && sponsored_mode == 1) {
+    int minimum_rating = vendors ? restaurant_min_rating : review_min_rating;
+    int content_mode = vendors ? 0 : review_content_mode;
+    if ((vendors && sponsored_mode == 1) || minimum_rating > 0 || content_mode > 0) {
         int32_t kept = 0;
         for (int32_t i = 0; i < count; ++i) {
             uint32_t ref = items[i];
@@ -217,7 +225,17 @@ static void sort_response(uint64_t response, uint64_t heap, uint64_t null_object
                 continue;
             }
             uint64_t item = dart_pointer(&context, ref);
-            if (dart_integer(&context, dart_field(item, 0x197)) <= 0) items[kept++] = ref;
+            if (vendors && sponsored_mode == 1 &&
+                dart_integer(&context, dart_field(item, 0x197)) > 0) continue;
+            double rating = dart_double(&context, dart_field(item, vendors ? 0x34 : 0x14));
+            if (minimum_rating > 0 && rating * 10.0 < (double)minimum_rating) continue;
+            if (content_mode == 2 && rating <= 0.0) continue;
+            if (content_mode == 1) {
+                const uint8_t *text = NULL;
+                int32_t length = 0;
+                if (!dart_string(&context, item, 0x10, &text, &length) || length == 0) continue;
+            }
+            items[kept++] = ref;
         }
         count = kept;
         uint32_t list_ref = dart_field(response, 8);
@@ -225,7 +243,7 @@ static void sort_response(uint64_t response, uint64_t heap, uint64_t null_object
         uint32_t raw_count = (uint32_t)(count << 1);
         memcpy((void *)(uintptr_t)(list + 11), &raw_count, sizeof(raw_count));
     }
-    if (count < 2) return;
+    if (original_order || count < 2) return;
     for (int32_t i = 1; i < count; ++i) {
         uint32_t item_ref = items[i];
         if (item_ref == context.null_ref || (item_ref & 1U) == 0) continue;

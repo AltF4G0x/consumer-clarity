@@ -2497,9 +2497,67 @@
       "options": []
     },
     {
+      "name": "Link safety preview",
+      "description": "Shows the destination before opening a link, with Open, Share, Copy, and Cancel actions.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Open links in default browser",
       "description": "Routes links that would open in Talabat's in-app WebView to the default browser. Can be toggled in Consumer Clarity settings.",
       "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Preferred app language",
+      "description": "Adds System Default, English, Arabic, and Kurdish language choices for Talabat's interface.",
+      "default": false,
       "category": null,
       "compatiblePackages": [
         {
@@ -2644,6 +2702,180 @@
     {
       "name": "Require WebView media gesture",
       "description": "Prevents in-app WebView media from starting without a user gesture. Manual playback remains available.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Restaurant rating filter",
+      "description": "Adds a minimum-rating filter for restaurant listings, including 4.0 and 4.5 stars.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Review content filter",
+      "description": "Adds minimum-rating and reviews-with-text filters without changing review content.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Settings backup and restore",
+      "description": "Adds JSON export and import for patch preferences without account or order data.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Settings search",
+      "description": "Adds a search field to filter patch controls by name, description, or category.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Share links",
+      "description": "Opens Android's share sheet for links instead of displaying them in Talabat's WebView.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Text size",
+      "description": "Adds independent text scaling from 85% to 130% without changing device-wide font settings.",
       "default": false,
       "category": null,
       "compatiblePackages": [
