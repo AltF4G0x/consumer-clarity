@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.4.0-6f42c1.svg" /></a>
+  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.6.0-6f42c1.svg" /></a>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg" /></a>
   <a href="https://www.android.com/"><img alt="platform" src="https://img.shields.io/badge/platform-Android-3ddc84.svg" /></a>
   <a href="https://github.com/MorpheApp/morphe-manager"><img alt="Morphe" src="https://img.shields.io/badge/works%20with-Morphe-00b894.svg" /></a>
@@ -16,13 +16,14 @@ Consumer Clarity is a set of [Morphe](https://github.com/MorpheApp/morphe-manage
 
 ## What it changes
 
-Consumer Clarity now contains **76 independently selectable patches**:
+Consumer Clarity now contains **101 independently selectable patches**:
 
-- **Discovery:** Demote or hide sponsored restaurants and sort reviews deterministically without changing review text or star values.
+- **Discovery:** Demote or hide sponsored restaurants, filter restaurants and reviews by rating or text, and sort reviews deterministically without changing their content.
 - **Privacy:** Control Firebase, Adjust, Perseus, Braze, advertising identifiers, install attribution, analytics uploads, location, sensors, Bluetooth, NFC, camera, microphone, and legacy storage.
 - **Diagnostics:** Independently control Sentry crashes, traces, profiling, replay, screenshots, breadcrumbs, device context, and Shake Bugs reporting, network inspection, identity, and feedback.
-- **WebView:** Require media gestures, block third-party cookies, disable geolocation, restrict file/content access, use incognito mode, reduce image traffic, disable background audio, enable safe browsing, request dark content, disable form saving, and block popup windows.
-- **Compatibility and navigation:** Disable the Play license gate and open in-app links in the default browser.
+- **WebView:** Require media gestures, block third-party cookies, disable geolocation, restrict file/content access and mixed content, use incognito mode, reduce image traffic, disable background audio, enable safe browsing, request dark content, disable form saving, and block popup windows.
+- **Display and accessibility:** Allow screenshots, keep the screen on, choose app language, and scale text from 85% to 130%.
+- **Control center and navigation:** Use the draggable home settings button, search settings, back up preferences, preview links, open them in a browser, or share them.
 
 The categorized Consumer Clarity page in Talabat's About section only lists patches selected in Morphe. It includes live switches, build-time labels, Calm feed and Maximum privacy presets, sorting controls, reset tools, and developer notes. Native sorting hooks check the expected original instructions before activating and refuse to run on a mismatched binary.
 
@@ -171,20 +172,20 @@ export ANDROID_NDK_HOME=/path/to/android-ndk
 ./gradlew buildAndroid
 ```
 
-The generated bundle is `patches/build/libs/patches-1.4.0.mpp`.
+The generated bundle is `patches/build/libs/patches-1.6.0.mpp`.
 
 Morphe Desktop requires Java 21:
 
 ```bash
 java -jar morphe-desktop-*-all.jar patch \
   --validate \
-  -p patches/build/libs/patches-1.4.0.mpp \
+  -p patches/build/libs/patches-1.6.0.mpp \
   com.talabat.xapk
 ```
 
 ## Verification and limitations
 
-All 92 patches were built and applied together with Morphe validation and no failed patches. The optimized APK opened Talabat and the categorized settings page, displayed all 92 catalog entries and the new Display controls, and had no new crash report. Earlier checks exercised live switches, presets, permission removals, and both native sorting hooks. Complete restaurant/review sorting behavior, every screen, and every patch's server-visible effect have not been exhaustively verified.
+All 101 patches were built and applied together with Morphe validation and no failed patches. The feature APK opened Talabat and the control center, displayed the visible home shortcut, and passed settings search and restaurant-filter checks. Earlier checks exercised live switches, presets, permission removals, and both native sorting hooks. Link actions, backup/restore, accessibility options, every screen, and every patch's server-visible effect have not been exhaustively verified.
 
 Bugs and concrete feature requests belong in the [issue tracker](https://github.com/AltF4G0x/consumer-clarity/issues), with the talabat version and patch involved.
 
