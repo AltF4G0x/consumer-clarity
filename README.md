@@ -25,6 +25,11 @@ Review text and star values are never modified. Server-provided aggregate rating
 
 Native sorting hooks check the expected original instructions before activating and refuse to run on a mismatched binary.
 
+## Patches
+
+<!-- PATCHES_START EXPANDED -->
+<!-- PATCHES_END -->
+
 ## Install
 
 1. Obtain a compatible talabat 14.4.0 ARM64 APK or XAPK with its required splits.
