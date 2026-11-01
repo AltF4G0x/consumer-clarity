@@ -16,12 +16,14 @@ Consumer Clarity is a set of [Morphe](https://github.com/MorpheApp/morphe-manage
 
 ## What it changes
 
-- **Consistent restaurant and review sorting:** Places entries with a positive `sponsored_rank` after organic entries, then orders restaurants by descending rating and ascending ID. Reviews are ordered newest-first using their ISO date, with ascending ID as a stable tie-breaker. Later pages are processed as they load.
+- **Consistent restaurant and review sorting:** Places entries with a positive `sponsored_rank` after organic entries, then orders restaurants by descending rating and ascending ID. Reviews are ordered newest-first using their ISO date, with ascending ID as a stable tie-breaker. Later pages are processed as they load. Settings also supports hiding sponsored entries, original order, oldest-first reviews, and highest-rated reviews.
 - **Reduce analytics tracking:** Disables confirmed Firebase, Adjust, Perseus and Braze event-logging paths without blocking restaurant, checkout, login or order-tracking requests.
 - **Hide Braze in-app popups:** Prevents Braze promotional in-app messages from being queued or displayed. Functional dialogs and push notifications are unchanged.
 - **Disable Play license gate:** Skips the pairip license check and its repeated scheduler so a modified build can start without Google Play licensing. Other Google-dependent features are unchanged.
+- **Open links in default browser:** Routes links that would open in Talabat's in-app WebView to the default browser when enabled.
+- **Consumer Clarity settings:** Adds a native settings activity through Talabat's About page, with working sponsored/review sorting, analytics, popup, license-gate and external-link toggles, plus developer information and links to the original Facebook and FAQ pages.
 
-Review text and star values are never modified. Server-provided aggregate ratings cannot be made independently truthful or prevented from changing server-side. Display-ad inventory and sponsored-deals popups outside Braze are not claimed as blocked.
+Review text and star values are never modified. Server-provided aggregate ratings cannot be made independently truthful or prevented from changing server-side. Display-ad inventory and sponsored-deals popups outside Braze are not claimed as blocked. Video autoplay is not changed because the available play hook cannot distinguish autoplay from manual playback. No separate Talabat developer menu was found; server-controlled experiments are not presented as safe universal switches.
 
 Native sorting hooks check the expected original instructions before activating and refuse to run on a mismatched binary.
 

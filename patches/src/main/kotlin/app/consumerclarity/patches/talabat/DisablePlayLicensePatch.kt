@@ -1,7 +1,6 @@
 package app.consumerclarity.patches.talabat
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.returnEarly
 
 @Suppress("unused")
 val disablePlayLicensePatch = bytecodePatch(
@@ -11,11 +10,12 @@ val disablePlayLicensePatch = bytecodePatch(
     default = true,
 ) {
     compatibleWith(TALABAT_COMPATIBILITY)
+    extendWith("extensions/extension.mpe")
 
     execute {
         mutableClassDefBy("Lcom/pairip/licensecheck/LicenseClient;").methods.apply {
-            single { it.name == "checkLicense" }.returnEarly()
-            single { it.name == "scheduleRepeatedLicenseCheck" }.returnEarly()
+            single { it.name == "checkLicense" }.skipWhen("disableLicenseGate")
+            single { it.name == "scheduleRepeatedLicenseCheck" }.skipWhen("disableLicenseGate")
         }
     }
 }

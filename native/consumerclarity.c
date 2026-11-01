@@ -108,8 +108,52 @@ static int compare_ids(const DartContext *context, uint64_t left, uint64_t right
     return left_id < right_id ? -1 : 1;
 }
 
+static int preference_int(const char *key, int fallback) {
+    FILE *file = fopen("/data/data/com.talabat/shared_prefs/consumerclarity.xml", "r");
+    if (file == NULL) return fallback;
+    char name[96];
+    snprintf(name, sizeof(name), "name=\"%s\"", key);
+    char *contents = NULL;
+    size_t capacity = 0;
+    size_t length = 0;
+    int result = fallback;
+    int c;
+    while ((c = fgetc(file)) != EOF && length < 65535) {
+        if (length + 1 >= capacity) {
+            capacity = capacity == 0 ? 4096 : capacity * 2;
+            char *grown = realloc(contents, capacity);
+            if (grown == NULL) break;
+            contents = grown;
+        }
+        contents[length++] = (char)c;
+    }
+    fclose(file);
+    if (contents != NULL) {
+        contents[length] = '\0';
+        char *found = strstr(contents, name);
+        if (found != NULL) {
+            char *value = strstr(found, "value=\"");
+            if (value != NULL) {
+                value += 7;
+                if (strncmp(value, "true", 4) == 0) result = 1;
+                else if (strncmp(value, "false", 5) == 0) result = 0;
+                else result = (int)strtol(value, NULL, 10);
+            }
+        }
+        free(contents);
+    }
+    return result;
+}
+
 static int compare_reviews(const DartContext *context, uint64_t left, uint64_t right) {
+    int mode = preference_int("review_sort_mode", 0);
+    if (mode == 2) {
+        double left_rating = dart_double(context, dart_field(left, 0x14));
+        double right_rating = dart_double(context, dart_field(right, 0x14));
+        if (left_rating != right_rating) return left_rating > right_rating ? -1 : 1;
+    }
     int comparison = compare_dates(context, left, right);
+    if (mode == 1) comparison = -comparison;
     return comparison != 0 ? comparison : compare_ids(context, left, right);
 }
 
@@ -140,10 +184,29 @@ static uint32_t *dart_list(const DartContext *context, uint64_t response, int32_
 }
 
 static void sort_response(uint64_t response, uint64_t heap, uint64_t null_object, int vendors) {
+    if (preference_int(vendors ? "sponsored_mode" : "review_sort_mode", vendors ? 0 : 3) == (vendors ? 2 : 3)) return;
     DartContext context = {.heap = heap, .null_ref = (uint32_t)null_object};
     int32_t count = 0;
     uint32_t *items = dart_list(&context, response, &count);
-    if (items == NULL || count < 2) return;
+    if (items == NULL) return;
+    if (vendors && preference_int("sponsored_mode", 0) == 1) {
+        int32_t kept = 0;
+        for (int32_t i = 0; i < count; ++i) {
+            uint32_t ref = items[i];
+            if (ref == context.null_ref || (ref & 1U) == 0) {
+                items[kept++] = ref;
+                continue;
+            }
+            uint64_t item = dart_pointer(&context, ref);
+            if (dart_integer(&context, dart_field(item, 0x197)) <= 0) items[kept++] = ref;
+        }
+        count = kept;
+        uint32_t list_ref = dart_field(response, 8);
+        uint64_t list = dart_pointer(&context, list_ref);
+        uint32_t raw_count = (uint32_t)(count << 1);
+        memcpy((void *)(uintptr_t)(list + 11), &raw_count, sizeof(raw_count));
+    }
+    if (count < 2) return;
     for (int32_t i = 1; i < count; ++i) {
         uint32_t item_ref = items[i];
         if (item_ref == context.null_ref || (item_ref & 1U) == 0) continue;

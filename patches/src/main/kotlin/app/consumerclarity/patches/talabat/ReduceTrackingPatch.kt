@@ -1,7 +1,6 @@
 package app.consumerclarity.patches.talabat
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.returnEarly
 
 @Suppress("unused")
 val reduceTrackingPatch = bytecodePatch(
@@ -11,6 +10,7 @@ val reduceTrackingPatch = bytecodePatch(
     default = true,
 ) {
     compatibleWith(TALABAT_COMPATIBILITY)
+    extendWith("extensions/extension.mpe")
 
     execute {
         mapOf(
@@ -31,11 +31,11 @@ val reduceTrackingPatch = bytecodePatch(
         ).forEach { (classType, methodNames) ->
             val methods = mutableClassDefBy(classType).methods
             methodNames.forEach { name ->
-                methods.single { it.name == name }.returnEarly()
+                methods.single { it.name == name }.skipWhen("reduceTracking")
             }
         }
         mutableClassDefBy("Lcom/braze/Braze;").methods
             .single { it.name == "logBannerImpression" }
-            .returnEarly(false)
+            .returnFalseWhen("reduceTracking")
     }
 }

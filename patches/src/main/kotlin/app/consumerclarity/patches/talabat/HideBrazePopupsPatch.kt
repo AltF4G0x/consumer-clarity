@@ -1,7 +1,6 @@
 package app.consumerclarity.patches.talabat
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.returnEarly
 
 @Suppress("unused")
 val hideBrazePopupsPatch = bytecodePatch(
@@ -11,11 +10,12 @@ val hideBrazePopupsPatch = bytecodePatch(
     default = true,
 ) {
     compatibleWith(TALABAT_COMPATIBILITY)
+    extendWith("extensions/extension.mpe")
 
     execute {
         mutableClassDefBy("Lcom/braze/ui/inappmessage/BrazeInAppMessageManager;").methods.apply {
-            single { it.name == "registerInAppMessageManager" }.returnEarly()
-            single { it.name == "addInAppMessage" }.returnEarly()
+            single { it.name == "registerInAppMessageManager" }.skipWhen("hideBrazePopups")
+            single { it.name == "addInAppMessage" }.skipWhen("hideBrazePopups")
         }
     }
 }
