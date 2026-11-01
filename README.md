@@ -30,7 +30,7 @@ Native sorting hooks check the expected original instructions before activating 
 ## Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.1](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.1.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;5 patches total
+> **[v1.2.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.2.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;5 patches total
 <details open>
 <summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>

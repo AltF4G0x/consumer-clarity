@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.1.1...v1.2.0) (2026-11-01)
+
+### ✨ New Features
+
+* Add categorized controls and privacy patches ([7bc4118](https://github.com/AltF4G0x/consumer-clarity/commit/7bc4118a340eb82b483d4f656d43d319fd732ac0))
+
 ## [1.1.1](https://github.com/AltF4G0x/consumer-clarity/compare/v1.1.0...v1.1.1) (2026-11-01)
 
 ### 🐛 Bug Fixes

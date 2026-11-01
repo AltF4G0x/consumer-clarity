@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-01T15:15:22",
-  "description": "## [1.1.1](https://github.com/AltF4G0x/consumer-clarity/compare/v1.1.0...v1.1.1) (2026-11-01)\n\n### 🐛 Bug Fixes\n\n* Keep runtime patches from crashing startup ([81bc5c3](https://github.com/AltF4G0x/consumer-clarity/commit/81bc5c38824a38491447848e207b30da23e02d2b))",
-  "download_url": "https://github.com/AltF4G0x/consumer-clarity/releases/download/v1.1.1/patches-1.1.1.mpp",
+  "created_at": "2026-11-01T16:00:06",
+  "description": "## [1.2.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.1.1...v1.2.0) (2026-11-01)\n\n### ✨ New Features\n\n* Add categorized controls and privacy patches ([7bc4118](https://github.com/AltF4G0x/consumer-clarity/commit/7bc4118a340eb82b483d4f656d43d319fd732ac0))",
+  "download_url": "https://github.com/AltF4G0x/consumer-clarity/releases/download/v1.2.0/patches-1.2.0.mpp",
   "signature_download_url": "",
-  "version": "1.1.1"
+  "version": "1.2.0"
 }
