@@ -238,3 +238,75 @@ val disableSentrySystemBreadcrumbsPatch = sentryFalseControl(
     "isEnableSystemEventBreadcrumbs",
     "isEnableSystemEventBreadcrumbsExtras",
 )
+
+@Suppress("unused")
+val disableSentryReplayNetworkBodiesPatch = sentryFalseControl(
+    "Disable Sentry replay network bodies",
+    "Prevents Sentry replay from capturing network request and response bodies.",
+    REPLAY_OPTIONS,
+    "isNetworkCaptureBodies",
+)
+
+@Suppress("unused")
+val disableSentrySurfaceReplayPatch = sentryFalseControl(
+    "Disable Sentry SurfaceView replay",
+    "Prevents Sentry replay from capturing SurfaceView content.",
+    REPLAY_OPTIONS,
+    "isCaptureSurfaceViews",
+)
+
+@Suppress("unused")
+val disableSentryCacheTracingPatch = sentryFalseControl(
+    "Disable Sentry cache tracing",
+    "Disables Sentry performance traces for cache operations.",
+    SENTRY_OPTIONS,
+    "isEnableCacheTracing",
+)
+
+@Suppress("unused")
+val disableSentryDatabaseTracingPatch = sentryFalseControl(
+    "Disable Sentry database tracing",
+    "Disables Sentry performance traces for database transactions.",
+    SENTRY_OPTIONS,
+    "isEnableDatabaseTransactionTracing",
+)
+
+@Suppress("unused")
+val disableSentryQueueTracingPatch = sentryFalseControl(
+    "Disable Sentry queue tracing",
+    "Disables Sentry performance traces for queue operations.",
+    SENTRY_OPTIONS,
+    "isEnableQueueTracing",
+)
+
+@Suppress("unused")
+val disableSentryDisplayTracingPatch = sentryFalseControl(
+    "Disable Sentry full-display tracing",
+    "Disables Sentry's time-to-full-display performance traces.",
+    SENTRY_OPTIONS,
+    "isEnableTimeToFullDisplayTracing",
+)
+
+@Suppress("unused")
+val disableSentryAnrThreadDumpsPatch = sentryFalseControl(
+    "Disable Sentry ANR thread dumps",
+    "Prevents Sentry from attaching thread dumps to ANR reports.",
+    ANDROID_OPTIONS,
+    "isAttachAnrThreadDump",
+)
+
+@Suppress("unused")
+val disableSentryRawTombstonesPatch = sentryFalseControl(
+    "Disable Sentry raw tombstones",
+    "Prevents Sentry from attaching raw native tombstone data.",
+    ANDROID_OPTIONS,
+    "isAttachRawTombstone",
+)
+
+@Suppress("unused")
+val disableSentryHistoricalAnrsPatch = sentryFalseControl(
+    "Disable Sentry historical ANRs",
+    "Disables Sentry reports for historical application-not-responding events.",
+    ANDROID_OPTIONS,
+    "isReportHistoricalAnrs",
+)

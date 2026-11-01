@@ -117,3 +117,43 @@ val webViewPopupWindowsPatch = webViewControl(
     "webview_popup_windows",
     "blockPopupWindows",
 )
+
+@Suppress("unused")
+val webViewDomStoragePatch = webViewControl(
+    "Disable WebView DOM storage",
+    "Disables WebView DOM storage. Some signed-in WebView pages may lose local state.",
+    "webview_dom_storage",
+    "disableDomStorage",
+)
+
+@Suppress("unused")
+val webViewDatabasePatch = webViewControl(
+    "Disable WebView database storage",
+    "Disables the legacy WebView database API and its stored data.",
+    "webview_database",
+    "disableDatabase",
+)
+
+@Suppress("unused")
+val webViewCachePatch = webViewControl(
+    "Disable WebView cache",
+    "Disables WebView caching to reduce retained browsing data. Network usage may increase.",
+    "webview_cache",
+    "disableCache",
+)
+
+@Suppress("unused")
+val webViewMixedContentPatch = webViewControl(
+    "Block WebView mixed content",
+    "Blocks insecure HTTP content from loading inside HTTPS WebView pages.",
+    "webview_mixed_content",
+    "blockMixedContent",
+)
+
+@Suppress("unused")
+val webViewFileUrlsPatch = webViewControl(
+    "Block cross-origin WebView file URLs",
+    "Blocks file URLs from reading other files or making cross-origin requests in WebView pages.",
+    "webview_file_urls",
+    "blockFileUrls",
+)

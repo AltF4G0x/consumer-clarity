@@ -76,4 +76,27 @@ public final class ConsumerClarityWebView {
             set(settings, "javaScriptCanOpenWindowsAutomatically", false);
         }
     }
+
+    public static void disableDomStorage(Object settings) {
+        if (enabled("webview_dom_storage")) set(settings, "domStorageEnabled", false);
+    }
+
+    public static void disableDatabase(Object settings) {
+        if (enabled("webview_database")) set(settings, "databaseEnabled", false);
+    }
+
+    public static void disableCache(Object settings) {
+        if (enabled("webview_cache")) set(settings, "cacheEnabled", false);
+    }
+
+    public static void blockMixedContent(Object settings) {
+        if (enabled("webview_mixed_content")) set(settings, "mixedContentMode", 0);
+    }
+
+    public static void blockFileUrls(Object settings) {
+        if (enabled("webview_file_urls")) {
+            set(settings, "allowFileAccessFromFileURLs", false);
+            set(settings, "allowUniversalAccessFromFileURLs", false);
+        }
+    }
 }

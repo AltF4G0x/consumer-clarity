@@ -3,6 +3,35 @@
   "version": "1.3.1",
   "patches": [
     {
+      "name": "Allow screenshots",
+      "description": "Clears Android's secure-window flag so screenshots and screen recording are allowed.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block WebView content access",
       "description": "Prevents in-app WebView pages from opening Android content URLs.",
       "default": false,
@@ -61,6 +90,35 @@
       "options": []
     },
     {
+      "name": "Block WebView mixed content",
+      "description": "Blocks insecure HTTP content from loading inside HTTPS WebView pages.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block WebView network images",
       "description": "Reduces WebView data usage by blocking network-loaded images.",
       "default": false,
@@ -92,6 +150,35 @@
     {
       "name": "Block WebView popup windows",
       "description": "Prevents WebView JavaScript from opening additional windows automatically.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block cross-origin WebView file URLs",
+      "description": "Blocks file URLs from reading other files or making cross-origin requests in WebView pages.",
       "default": false,
       "category": null,
       "compatiblePackages": [
@@ -525,6 +612,64 @@
       "options": []
     },
     {
+      "name": "Disable Sentry ANR thread dumps",
+      "description": "Prevents Sentry from attaching thread dumps to ANR reports.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry SurfaceView replay",
+      "description": "Prevents Sentry replay from capturing SurfaceView content.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable Sentry app-start tracing",
       "description": "Disables automatic startup and activity lifecycle performance traces.",
       "default": false,
@@ -583,6 +728,35 @@
       "options": []
     },
     {
+      "name": "Disable Sentry cache tracing",
+      "description": "Disables Sentry performance traces for cache operations.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable Sentry crash reports",
       "description": "Suppresses Sentry events, exceptions, messages, and user-feedback reports while returning an empty event ID.",
       "default": false,
@@ -614,6 +788,35 @@
     {
       "name": "Disable Sentry crash screenshots",
       "description": "Prevents Sentry from attaching screenshots to crash events.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry database tracing",
+      "description": "Disables Sentry performance traces for database transactions.",
       "default": false,
       "category": null,
       "compatiblePackages": [
@@ -701,6 +904,64 @@
     {
       "name": "Disable Sentry frame tracking",
       "description": "Disables Sentry frame-rate and rendering performance collection.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry full-display tracing",
+      "description": "Disables Sentry's time-to-full-display performance traces.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry historical ANRs",
+      "description": "Disables Sentry reports for historical application-not-responding events.",
       "default": false,
       "category": null,
       "compatiblePackages": [
@@ -991,6 +1252,93 @@
     {
       "name": "Disable Sentry profiling",
       "description": "Sets Sentry's profiling sample rate to zero.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry queue tracing",
+      "description": "Disables Sentry performance traces for queue operations.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry raw tombstones",
+      "description": "Prevents Sentry from attaching raw native tombstone data.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Sentry replay network bodies",
+      "description": "Prevents Sentry replay from capturing network request and response bodies.",
       "default": false,
       "category": null,
       "compatiblePackages": [
@@ -1482,8 +1830,95 @@
       "options": []
     },
     {
+      "name": "Disable WebView DOM storage",
+      "description": "Disables WebView DOM storage. Some signed-in WebView pages may lose local state.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable WebView background audio",
       "description": "Prevents in-app WebView pages from continuing audio in the background.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable WebView cache",
+      "description": "Disables WebView caching to reduce retained browsing data. Network usage may increase.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable WebView database storage",
+      "description": "Disables the legacy WebView database API and its stored data.",
       "default": false,
       "category": null,
       "compatiblePackages": [
@@ -1977,6 +2412,35 @@
     {
       "name": "Hide Shake Bugs report UI",
       "description": "Prevents Shake Bugs from opening its feedback and bug-report interface.",
+      "default": false,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Keep screen on",
+      "description": "Keeps the screen awake while Talabat's main activity is visible.",
       "default": false,
       "category": null,
       "compatiblePackages": [

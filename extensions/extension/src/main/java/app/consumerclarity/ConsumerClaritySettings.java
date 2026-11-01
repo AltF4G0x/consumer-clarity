@@ -5,41 +5,63 @@ import android.content.SharedPreferences;
 
 public final class ConsumerClaritySettings {
     private static final String PREFS = "consumerclarity";
+    private static volatile SharedPreferences preferences;
+    private static volatile Context application;
 
     private ConsumerClaritySettings() {}
 
     public static SharedPreferences get(Context context) {
-        return context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        SharedPreferences current = preferences;
+        if (current == null) {
+            synchronized (ConsumerClaritySettings.class) {
+                current = preferences;
+                if (current == null) {
+                    current = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+                    preferences = current;
+                }
+            }
+        }
+        return current;
     }
 
     private static Context appContext() {
-        try {
-            return (Context) Class.forName("android.app.ActivityThread")
-                .getMethod("currentApplication")
-                .invoke(null);
-        } catch (ReflectiveOperationException error) {
-            throw new IllegalStateException(error);
+        Context current = application;
+        if (current == null) {
+            try {
+                current = (Context) Class.forName("android.app.ActivityThread")
+                    .getMethod("currentApplication")
+                    .invoke(null);
+                application = current;
+            } catch (ReflectiveOperationException error) {
+                throw new IllegalStateException(error);
+            }
         }
+        return current;
     }
 
     public static boolean enabled(String key) {
-        return get(appContext()).getBoolean(key, true);
+        Context context = appContext();
+        return context == null || get(context).getBoolean(key, true);
     }
 
     public static boolean reduceTracking() {
-        return reduceTracking(appContext());
+        Context context = appContext();
+        return context == null || reduceTracking(context);
     }
 
     public static boolean hideBrazePopups() {
-        return hideBrazePopups(appContext());
+        Context context = appContext();
+        return context == null || hideBrazePopups(context);
     }
 
     public static boolean disableLicenseGate() {
-        return disableLicenseGate(appContext());
+        Context context = appContext();
+        return context == null || disableLicenseGate(context);
     }
 
     public static boolean openLinksExternally() {
-        return openLinksExternally(appContext());
+        Context context = appContext();
+        return context != null && openLinksExternally(context);
     }
 
     public static boolean reduceTracking(Context context) {

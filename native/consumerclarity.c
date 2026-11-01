@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/mman.h>
+#include <time.h>
 #include <unistd.h>
 
 #define TAG "ConsumerClarity"
@@ -120,10 +121,15 @@ static int preference_int(const char *key, int fallback) {
     int c;
     while ((c = fgetc(file)) != EOF && length < 65535) {
         if (length + 1 >= capacity) {
-            capacity = capacity == 0 ? 4096 : capacity * 2;
-            char *grown = realloc(contents, capacity);
-            if (grown == NULL) break;
+            size_t grown_capacity = capacity == 0 ? 4096 : capacity * 2;
+            char *grown = realloc(contents, grown_capacity);
+            if (grown == NULL) {
+                free(contents);
+                contents = NULL;
+                break;
+            }
             contents = grown;
+            capacity = grown_capacity;
         }
         contents[length++] = (char)c;
     }
@@ -145,8 +151,20 @@ static int preference_int(const char *key, int fallback) {
     return result;
 }
 
+static int sponsored_mode;
+static int review_sort_mode;
+static time_t preferences_timestamp;
+
+static void refresh_preferences() {
+    time_t now = time(NULL);
+    if (now == preferences_timestamp) return;
+    preferences_timestamp = now;
+    sponsored_mode = preference_int("sponsored_mode", 0);
+    review_sort_mode = preference_int("review_sort_mode", 0);
+}
+
 static int compare_reviews(const DartContext *context, uint64_t left, uint64_t right) {
-    int mode = preference_int("review_sort_mode", 0);
+    int mode = review_sort_mode;
     if (mode == 2) {
         double left_rating = dart_double(context, dart_field(left, 0x14));
         double right_rating = dart_double(context, dart_field(right, 0x14));
@@ -184,12 +202,13 @@ static uint32_t *dart_list(const DartContext *context, uint64_t response, int32_
 }
 
 static void sort_response(uint64_t response, uint64_t heap, uint64_t null_object, int vendors) {
-    if (preference_int(vendors ? "sponsored_mode" : "review_sort_mode", vendors ? 0 : 3) == (vendors ? 2 : 3)) return;
+    refresh_preferences();
+    if ((vendors ? sponsored_mode : review_sort_mode) == (vendors ? 2 : 3)) return;
     DartContext context = {.heap = heap, .null_ref = (uint32_t)null_object};
     int32_t count = 0;
     uint32_t *items = dart_list(&context, response, &count);
     if (items == NULL) return;
-    if (vendors && preference_int("sponsored_mode", 0) == 1) {
+    if (vendors && sponsored_mode == 1) {
         int32_t kept = 0;
         for (int32_t i = 0; i < count; ++i) {
             uint32_t ref = items[i];
