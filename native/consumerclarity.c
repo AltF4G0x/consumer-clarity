@@ -181,12 +181,20 @@ static int compare_reviews(const DartContext *context, uint64_t left, uint64_t r
     return comparison != 0 ? comparison : compare_ids(context, left, right);
 }
 
+static double dart_rating(const DartContext *context, uint32_t ref, int *rated) {
+    *rated = ref != context->null_ref && (ref & 1U) != 0;
+    return dart_double(context, ref);
+}
+
 static int compare_vendors(const DartContext *context, uint64_t left, uint64_t right) {
+    int left_rated;
+    int right_rated;
+    double left_rating = dart_rating(context, dart_field(left, 0x34), &left_rated);
+    double right_rating = dart_rating(context, dart_field(right, 0x34), &right_rated);
+    if (left_rated != right_rated) return left_rated ? -1 : 1;
     int left_sponsored = dart_integer(context, dart_field(left, 0x197)) > 0;
     int right_sponsored = dart_integer(context, dart_field(right, 0x197)) > 0;
     if (left_sponsored != right_sponsored) return left_sponsored ? 1 : -1;
-    double left_rating = dart_double(context, dart_field(left, 0x34));
-    double right_rating = dart_double(context, dart_field(right, 0x34));
     if (left_rating != right_rating) return left_rating > right_rating ? -1 : 1;
     return compare_ids(context, left, right);
 }
