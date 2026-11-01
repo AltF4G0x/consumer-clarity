@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-01T18:05:01",
-  "description": "## [1.4.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.3.1...v1.4.0) (2026-11-01)\n\n### ✨ New Features\n\n* Optimize preferences and add display controls ([0bbbd0d](https://github.com/AltF4G0x/consumer-clarity/commit/0bbbd0d34f75e82da0aa15e8015bc7bdf91f23b9))",
-  "download_url": "https://github.com/AltF4G0x/consumer-clarity/releases/download/v1.4.0/patches-1.4.0.mpp",
+  "created_at": "2026-11-01T18:32:32",
+  "description": "## [1.5.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.4.0...v1.5.0) (2026-11-01)\n\n### ✨ New Features\n\n* Add a home-screen settings shortcut ([ad29245](https://github.com/AltF4G0x/consumer-clarity/commit/ad29245fb4dc187f02245d7402cab8e0b3d58b8a))",
+  "download_url": "https://github.com/AltF4G0x/consumer-clarity/releases/download/v1.5.0/patches-1.5.0.mpp",
   "signature_download_url": "",
-  "version": "1.4.0"
+  "version": "1.5.0"
 }

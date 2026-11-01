@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.4.0...v1.5.0) (2026-11-01)
+
+### ✨ New Features
+
+* Add a home-screen settings shortcut ([ad29245](https://github.com/AltF4G0x/consumer-clarity/commit/ad29245fb4dc187f02245d7402cab8e0b3d58b8a))
+
 ## [1.4.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.3.1...v1.4.0) (2026-11-01)
 
 ### ✨ New Features
