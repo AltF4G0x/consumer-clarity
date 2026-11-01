@@ -32,7 +32,7 @@ Review text and star values are never modified. Server-provided aggregate rating
 ## Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.6.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.6.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;101 patches total
+> **[v1.6.1](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.6.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;101 patches total
 <details open>
 <summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;101 patches</summary>
 <br>

@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/AltF4G0x/consumer-clarity/compare/v1.6.0...v1.6.1) (2026-11-01)
+
+### 🐛 Bug Fixes
+
+* Demote unrated restaurants after rated entries ([b028afd](https://github.com/AltF4G0x/consumer-clarity/commit/b028afd3dec2932398d9723e0c27575e889aa637))
+
 ## [1.6.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.5.0...v1.6.0) (2026-11-01)
 
 ### ✨ New Features
