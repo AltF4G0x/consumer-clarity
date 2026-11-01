@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/AltF4G0x/consumer-clarity/compare/v1.1.0...v1.1.1) (2026-11-01)
+
+### 🐛 Bug Fixes
+
+* Keep runtime patches from crashing startup ([81bc5c3](https://github.com/AltF4G0x/consumer-clarity/commit/81bc5c38824a38491447848e207b30da23e02d2b))
+
 ## [1.1.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.0.0...v1.1.0) (2026-11-01)
 
 ### ✨ New Features
