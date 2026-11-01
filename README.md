@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.0.0-6f42c1.svg" /></a>
+  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.1.1-6f42c1.svg" /></a>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg" /></a>
   <a href="https://www.android.com/"><img alt="platform" src="https://img.shields.io/badge/platform-Android-3ddc84.svg" /></a>
   <a href="https://github.com/MorpheApp/morphe-manager"><img alt="Morphe" src="https://img.shields.io/badge/works%20with-Morphe-00b894.svg" /></a>
@@ -74,20 +74,20 @@ export ANDROID_NDK_HOME=/path/to/android-ndk
 ./gradlew buildAndroid
 ```
 
-The generated bundle is `patches/build/libs/patches-1.0.0.mpp`.
+The generated bundle is `patches/build/libs/patches-1.1.1.mpp`.
 
 Morphe Desktop requires Java 21:
 
 ```bash
 java -jar morphe-desktop-*-all.jar patch \
   --validate \
-  -p patches/build/libs/patches-1.0.0.mpp \
+  -p patches/build/libs/patches-1.1.1.mpp \
   com.talabat.xapk
 ```
 
 ## Verification and limitations
 
-The patches were built and applied with Morphe, and both native sorting hooks activated successfully in an ARM64 emulator session. A later emulator outage prevented complete restaurant/review UI verification. No claim is made that every screen or Google-independent feature has been exercised.
+All five patches were built and applied with Morphe validation. The corrected APK completed two cold starts, reached Talabat's country-selection screen, opened the Consumer Clarity settings activity, persisted a preference change, and activated both native sorting hooks. Complete restaurant/review sorting behavior, every screen, and Google-independent features have not been exhaustively verified.
 
 Bugs and concrete feature requests belong in the [issue tracker](https://github.com/AltF4G0x/consumer-clarity/issues), with the talabat version and patch involved.
 
