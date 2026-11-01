@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.6.0-6f42c1.svg" /></a>
+  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.6.1-6f42c1.svg" /></a>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg" /></a>
   <a href="https://www.android.com/"><img alt="platform" src="https://img.shields.io/badge/platform-Android-3ddc84.svg" /></a>
   <a href="https://github.com/MorpheApp/morphe-manager"><img alt="Morphe" src="https://img.shields.io/badge/works%20with-Morphe-00b894.svg" /></a>
@@ -18,7 +18,7 @@ Consumer Clarity is a set of [Morphe](https://github.com/MorpheApp/morphe-manage
 
 Consumer Clarity now contains **101 independently selectable patches**:
 
-- **Discovery:** Demote or hide sponsored restaurants, filter restaurants and reviews by rating or text, and sort reviews deterministically without changing their content.
+- **Discovery:** Demote or hide sponsored restaurants, place unrated entries after rated ones, filter restaurants and reviews by rating or text, and sort reviews deterministically without changing their content.
 - **Privacy:** Control Firebase, Adjust, Perseus, Braze, advertising identifiers, install attribution, analytics uploads, location, sensors, Bluetooth, NFC, camera, microphone, and legacy storage.
 - **Diagnostics:** Independently control Sentry crashes, traces, profiling, replay, screenshots, breadcrumbs, device context, and Shake Bugs reporting, network inspection, identity, and feedback.
 - **WebView:** Require media gestures, block third-party cookies, disable geolocation, restrict file/content access and mixed content, use incognito mode, reduce image traffic, disable background audio, enable safe browsing, request dark content, disable form saving, and block popup windows.
@@ -172,20 +172,20 @@ export ANDROID_NDK_HOME=/path/to/android-ndk
 ./gradlew buildAndroid
 ```
 
-The generated bundle is `patches/build/libs/patches-1.6.0.mpp`.
+The generated bundle is `patches/build/libs/patches-1.6.1.mpp`.
 
 Morphe Desktop requires Java 21:
 
 ```bash
 java -jar morphe-desktop-*-all.jar patch \
   --validate \
-  -p patches/build/libs/patches-1.6.0.mpp \
+  -p patches/build/libs/patches-1.6.1.mpp \
   com.talabat.xapk
 ```
 
 ## Verification and limitations
 
-All 101 patches were built and applied together with Morphe validation and no failed patches. The feature APK opened Talabat and the control center, displayed the visible home shortcut, and passed settings search and restaurant-filter checks. Earlier checks exercised live switches, presets, permission removals, and both native sorting hooks. Link actions, backup/restore, accessibility options, every screen, and every patch's server-visible effect have not been exhaustively verified.
+All 101 patches were built and applied together with Morphe validation and no failed patches. The feature APK opened Talabat and the control center, displayed the visible home shortcut, and passed settings search and restaurant-filter checks. Earlier checks exercised live switches, presets, permission removals, and both native sorting hooks. The unrated-entry correction starts successfully, but the emulator's map did not load a restaurant list for visual ordering verification. Link actions, backup/restore, accessibility options, every screen, and every patch's server-visible effect have not been exhaustively verified.
 
 Bugs and concrete feature requests belong in the [issue tracker](https://github.com/AltF4G0x/consumer-clarity/issues), with the talabat version and patch involved.
 
