@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/AltF4G0x/consumer-clarity/compare/v1.3.0...v1.3.1) (2026-11-01)
+
+### 🐛 Bug Fixes
+
+* Generate metadata from the latest patch bundle ([f8973ba](https://github.com/AltF4G0x/consumer-clarity/commit/f8973bab7a51a5dd296c15cb5d6a4fc38c4ab540))
+
 ## [1.3.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.2.0...v1.3.0) (2026-11-01)
 
 ### ✨ New Features
