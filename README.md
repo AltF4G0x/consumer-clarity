@@ -31,9 +31,9 @@ Review text and star values are never modified. Server-provided aggregate rating
 ## Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.3.1](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.3.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;76 patches total
+> **[v1.4.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.4.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;92 patches total
 <details open>
-<summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;76 patches</summary>
+<summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;92 patches</summary>
 <br>
 
 **Package name:** `com.talabat`
@@ -46,10 +46,13 @@ Review text and star values are never modified. Server-provided aggregate rating
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Allow screenshots](#allow-screenshots) | Clears Android's secure-window flag so screenshots and screen recording are allowed. |  |
 | [Block WebView content access](#block-webview-content-access) | Prevents in-app WebView pages from opening Android content URLs. |  |
 | [Block WebView file access](#block-webview-file-access) | Prevents in-app WebView pages from reading arbitrary file URLs. |  |
+| [Block WebView mixed content](#block-webview-mixed-content) | Blocks insecure HTTP content from loading inside HTTPS WebView pages. |  |
 | [Block WebView network images](#block-webview-network-images) | Reduces WebView data usage by blocking network-loaded images. |  |
 | [Block WebView popup windows](#block-webview-popup-windows) | Prevents WebView JavaScript from opening additional windows automatically. |  |
+| [Block cross-origin WebView file URLs](#block-cross-origin-webview-file-urls) | Blocks file URLs from reading other files or making cross-origin requests in WebView pages. |  |
 | [Block third-party WebView cookies](#block-third-party-webview-cookies) | Blocks cross-site cookies inside Talabat's in-app WebView pages. |  |
 | [Consistent restaurant and review sorting](#consistent-restaurant-and-review-sorting) | Sorts restaurants by organic placement, rating and ID, and reviews by date and ID. Requires Talabat 14.4.0 (2368) on ARM64. |  |
 | [Disable Adjust install referrer](#disable-adjust-install-referrer) | Disables Adjust's install-referrer receiver without changing normal deep links. |  |
@@ -64,13 +67,19 @@ Review text and star values are never modified. Server-provided aggregate rating
 | [Disable Play license gate](#disable-play-license-gate) | Skips the pairip license check and its repeated scheduler so the modified app can start without Google Play licensing. Other Google-dependent features are unchanged. |  |
 | [Disable Sentry ANR profiling](#disable-sentry-anr-profiling) | Sets Sentry's ANR profiling sample rate to zero. |  |
 | [Disable Sentry ANR reports](#disable-sentry-anr-reports) | Disables Sentry application-not-responding reports. |  |
+| [Disable Sentry ANR thread dumps](#disable-sentry-anr-thread-dumps) | Prevents Sentry from attaching thread dumps to ANR reports. |  |
+| [Disable Sentry SurfaceView replay](#disable-sentry-surfaceview-replay) | Prevents Sentry replay from capturing SurfaceView content. |  |
 | [Disable Sentry app-start tracing](#disable-sentry-app-start-tracing) | Disables automatic startup and activity lifecycle performance traces. |  |
 | [Disable Sentry breadcrumbs](#disable-sentry-breadcrumbs) | Prevents application-supplied breadcrumbs from being recorded by Sentry. |  |
+| [Disable Sentry cache tracing](#disable-sentry-cache-tracing) | Disables Sentry performance traces for cache operations. |  |
 | [Disable Sentry crash reports](#disable-sentry-crash-reports) | Suppresses Sentry events, exceptions, messages, and user-feedback reports while returning an empty event ID. |  |
 | [Disable Sentry crash screenshots](#disable-sentry-crash-screenshots) | Prevents Sentry from attaching screenshots to crash events. |  |
+| [Disable Sentry database tracing](#disable-sentry-database-tracing) | Disables Sentry performance traces for database transactions. |  |
 | [Disable Sentry device context](#disable-sentry-device-context) | Prevents Sentry from collecting additional device context. |  |
 | [Disable Sentry error replay](#disable-sentry-error-replay) | Disables Sentry replay capture associated with errors. |  |
 | [Disable Sentry frame tracking](#disable-sentry-frame-tracking) | Disables Sentry frame-rate and rendering performance collection. |  |
+| [Disable Sentry full-display tracing](#disable-sentry-full-display-tracing) | Disables Sentry's time-to-full-display performance traces. |  |
+| [Disable Sentry historical ANRs](#disable-sentry-historical-anrs) | Disables Sentry reports for historical application-not-responding events. |  |
 | [Disable Sentry interaction breadcrumbs](#disable-sentry-interaction-breadcrumbs) | Prevents taps and other user interactions from becoming Sentry breadcrumbs. |  |
 | [Disable Sentry interaction tracing](#disable-sentry-interaction-tracing) | Disables Sentry performance traces built from user interactions. |  |
 | [Disable Sentry lifecycle breadcrumbs](#disable-sentry-lifecycle-breadcrumbs) | Disables activity, application, and component lifecycle breadcrumbs. |  |
@@ -81,6 +90,9 @@ Review text and star values are never modified. Server-provided aggregate rating
 | [Disable Sentry performance V2](#disable-sentry-performance-v2) | Disables Sentry's second-generation automatic performance collection. |  |
 | [Disable Sentry performance traces](#disable-sentry-performance-traces) | Sets Sentry's performance trace sample rate to zero. |  |
 | [Disable Sentry profiling](#disable-sentry-profiling) | Sets Sentry's profiling sample rate to zero. |  |
+| [Disable Sentry queue tracing](#disable-sentry-queue-tracing) | Disables Sentry performance traces for queue operations. |  |
+| [Disable Sentry raw tombstones](#disable-sentry-raw-tombstones) | Prevents Sentry from attaching raw native tombstone data. |  |
+| [Disable Sentry replay network bodies](#disable-sentry-replay-network-bodies) | Prevents Sentry replay from capturing network request and response bodies. |  |
 | [Disable Sentry root reporting](#disable-sentry-root-reporting) | Disables Sentry's root-status checks and reporting. |  |
 | [Disable Sentry session replay](#disable-sentry-session-replay) | Displays no Sentry session-replay capture. This is separate from crash screenshots. |  |
 | [Disable Sentry startup performance](#disable-sentry-startup-performance) | Disables Sentry's automatic startup performance provider. |  |
@@ -97,7 +109,10 @@ Review text and star values are never modified. Server-provided aggregate rating
 | [Disable Shake Bugs notification history](#disable-shake-bugs-notification-history) | Prevents Shake Bugs from recording notification events. |  |
 | [Disable Shake Bugs screen recording](#disable-shake-bugs-screen-recording) | Disables Shake Bugs' foreground screen-recording service. |  |
 | [Disable Shake Bugs user feedback](#disable-shake-bugs-user-feedback) | Disables Shake Bugs' user-feedback collection. |  |
+| [Disable WebView DOM storage](#disable-webview-dom-storage) | Disables WebView DOM storage. Some signed-in WebView pages may lose local state. |  |
 | [Disable WebView background audio](#disable-webview-background-audio) | Prevents in-app WebView pages from continuing audio in the background. |  |
+| [Disable WebView cache](#disable-webview-cache) | Disables WebView caching to reduce retained browsing data. Network usage may increase. |  |
+| [Disable WebView database storage](#disable-webview-database-storage) | Disables the legacy WebView database API and its stored data. |  |
 | [Disable WebView form saving](#disable-webview-form-saving) | Prevents in-app WebView pages from saving form data. |  |
 | [Disable WebView geolocation](#disable-webview-geolocation) | Prevents in-app WebView pages from requesting device location through the browser API. |  |
 | [Disable background location](#disable-background-location) | Removes background-location access. Foreground delivery addresses and order tracking can still work. |  |
@@ -115,6 +130,7 @@ Review text and star values are never modified. Server-provided aggregate rating
 | [Hide Shake Bugs chat notifications](#hide-shake-bugs-chat-notifications) | Prevents Shake Bugs from displaying support-chat notifications. |  |
 | [Hide Shake Bugs introduction](#hide-shake-bugs-introduction) | Suppresses Shake Bugs' introductory message. |  |
 | [Hide Shake Bugs report UI](#hide-shake-bugs-report-ui) | Prevents Shake Bugs from opening its feedback and bug-report interface. |  |
+| [Keep screen on](#keep-screen-on) | Keeps the screen awake while Talabat's main activity is visible. |  |
 | [Open links in default browser](#open-links-in-default-browser) | Routes links that would open in Talabat's in-app WebView to the default browser. Can be toggled in Consumer Clarity settings. |  |
 | [Reduce analytics tracking](#reduce-analytics-tracking) | Disables confirmed Firebase, Adjust, Perseus and Braze event logging paths without blocking restaurant, checkout or order-tracking network requests. |  |
 | [Remove ad attribution access](#remove-ad-attribution-access) | Removes access to Android Privacy Sandbox attribution reporting. |  |

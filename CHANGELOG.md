@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.3.1...v1.4.0) (2026-11-01)
+
+### ✨ New Features
+
+* Optimize preferences and add display controls ([0bbbd0d](https://github.com/AltF4G0x/consumer-clarity/commit/0bbbd0d34f75e82da0aa15e8015bc7bdf91f23b9))
+
 ## [1.3.1](https://github.com/AltF4G0x/consumer-clarity/compare/v1.3.0...v1.3.1) (2026-11-01)
 
 ### 🐛 Bug Fixes
