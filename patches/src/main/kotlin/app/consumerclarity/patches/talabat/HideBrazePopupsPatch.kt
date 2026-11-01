@@ -1,16 +1,14 @@
 package app.consumerclarity.patches.talabat
 
-import app.morphe.patcher.patch.bytecodePatch
-
 @Suppress("unused")
-val hideBrazePopupsPatch = bytecodePatch(
+val hideBrazePopupsPatch = consumerBytecodePatch(
     name = "Hide Braze in-app popups",
     description = "Prevents Braze promotional in-app messages from being queued or displayed. Functional app " +
         "dialogs and push notifications are unchanged.",
+    category = "Promotions",
+    key = "hide_braze_popups",
     default = true,
 ) {
-    compatibleWith(TALABAT_COMPATIBILITY)
-    extendWith("extensions/extension.mpe")
 
     execute {
         mutableClassDefBy("Lcom/braze/ui/inappmessage/BrazeInAppMessageManager;").methods.apply {

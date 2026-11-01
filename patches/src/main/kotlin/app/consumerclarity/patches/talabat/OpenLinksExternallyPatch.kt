@@ -1,17 +1,17 @@
 package app.consumerclarity.patches.talabat
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.patch.bytecodePatch
 
 @Suppress("unused")
-val openLinksExternallyPatch = bytecodePatch(
+val openLinksExternallyPatch = consumerBytecodePatch(
     name = "Open links in default browser",
     description = "Routes links that would open in Talabat's in-app WebView to the default browser. " +
         "Can be toggled in Consumer Clarity settings.",
+    category = "Navigation",
+    key = "open_links_externally",
     default = true,
+    defaultSetting = false,
 ) {
-    compatibleWith(TALABAT_COMPATIBILITY)
-    extendWith("extensions/extension.mpe")
 
     execute {
         mutableClassDefBy("LAc/w;").methods.single { it.name == "F" }.addInstructions(

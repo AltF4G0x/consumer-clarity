@@ -1,16 +1,14 @@
 package app.consumerclarity.patches.talabat
 
-import app.morphe.patcher.patch.bytecodePatch
-
 @Suppress("unused")
-val reduceTrackingPatch = bytecodePatch(
+val reduceTrackingPatch = consumerBytecodePatch(
     name = "Reduce analytics tracking",
     description = "Disables confirmed Firebase, Adjust, Perseus and Braze event logging paths without blocking " +
         "restaurant, checkout or order-tracking network requests.",
+    category = "Privacy",
+    key = "reduce_tracking",
     default = true,
 ) {
-    compatibleWith(TALABAT_COMPATIBILITY)
-    extendWith("extensions/extension.mpe")
 
     execute {
         mapOf(

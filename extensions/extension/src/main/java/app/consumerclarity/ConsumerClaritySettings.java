@@ -22,6 +22,10 @@ public final class ConsumerClaritySettings {
         }
     }
 
+    public static boolean enabled(String key) {
+        return get(appContext()).getBoolean(key, true);
+    }
+
     public static boolean reduceTracking() {
         return reduceTracking(appContext());
     }

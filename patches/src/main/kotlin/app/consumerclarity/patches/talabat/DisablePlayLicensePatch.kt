@@ -1,16 +1,14 @@
 package app.consumerclarity.patches.talabat
 
-import app.morphe.patcher.patch.bytecodePatch
-
 @Suppress("unused")
-val disablePlayLicensePatch = bytecodePatch(
+val disablePlayLicensePatch = consumerBytecodePatch(
     name = "Disable Play license gate",
     description = "Skips the pairip license check and its repeated scheduler so the modified app can start " +
         "without Google Play licensing. Other Google-dependent features are unchanged.",
+    category = "Compatibility",
+    key = "disable_license_gate",
     default = true,
 ) {
-    compatibleWith(TALABAT_COMPATIBILITY)
-    extendWith("extensions/extension.mpe")
 
     execute {
         mutableClassDefBy("Lcom/pairip/licensecheck/LicenseClient;").methods.apply {
