@@ -30,9 +30,9 @@ Native sorting hooks check the expected original instructions before activating 
 ## Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
+> **[v1.1.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;5 patches total
 <details open>
-<summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
 **Package name:** `com.talabat`
@@ -48,6 +48,7 @@ Native sorting hooks check the expected original instructions before activating 
 | [Consistent restaurant and review sorting](#consistent-restaurant-and-review-sorting) | Sorts restaurants by organic placement, rating and ID, and reviews by date and ID. Requires Talabat 14.4.0 (2368) on ARM64. |  |
 | [Disable Play license gate](#disable-play-license-gate) | Skips the pairip license check and its repeated scheduler so the modified app can start without Google Play licensing. Other Google-dependent features are unchanged. |  |
 | [Hide Braze in-app popups](#hide-braze-in-app-popups) | Prevents Braze promotional in-app messages from being queued or displayed. Functional app dialogs and push notifications are unchanged. |  |
+| [Open links in default browser](#open-links-in-default-browser) | Routes links that would open in Talabat's in-app WebView to the default browser. Can be toggled in Consumer Clarity settings. |  |
 | [Reduce analytics tracking](#reduce-analytics-tracking) | Disables confirmed Firebase, Adjust, Perseus and Braze event logging paths without blocking restaurant, checkout or order-tracking network requests. |  |
 
 </details>

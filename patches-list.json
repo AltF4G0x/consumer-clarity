@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "patches": [
     {
       "name": "Consistent restaurant and review sorting",
@@ -63,6 +63,35 @@
     {
       "name": "Hide Braze in-app popups",
       "description": "Prevents Braze promotional in-app messages from being queued or displayed. Functional app dialogs and push notifications are unchanged.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.talabat",
+          "name": "talabat",
+          "description": null,
+          "apkFileType": "XAPK_REQUIRED",
+          "appIconColor": "#FF5A00",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "14.4.0",
+              "versionCodes": {
+                "ARM64_V8A": 2368
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": "ARM64 build analyzed with REA and Jadart"
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Open links in default browser",
+      "description": "Routes links that would open in Talabat's in-app WebView to the default browser. Can be toggled in Consumer Clarity settings.",
       "default": true,
       "category": null,
       "compatiblePackages": [
