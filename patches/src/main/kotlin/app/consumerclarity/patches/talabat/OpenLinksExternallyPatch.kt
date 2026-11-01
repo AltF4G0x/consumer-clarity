@@ -23,7 +23,7 @@ val openLinksExternallyPatch = bytecodePatch(
                 new-instance v0, Landroid/content/Intent;
                 const-string v1, "android.intent.action.VIEW"
                 invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-                invoke-virtual {v0, p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+                invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
                 move-result-object v1
                 invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
                 iget-object v1, p0, LAc/w;->c:Ljava/lang/Object;

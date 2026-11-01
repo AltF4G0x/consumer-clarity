@@ -14,7 +14,7 @@ val disablePlayLicensePatch = bytecodePatch(
 
     execute {
         mutableClassDefBy("Lcom/pairip/licensecheck/LicenseClient;").methods.apply {
-            single { it.name == "checkLicense" }.skipWhen("disableLicenseGate")
+            single { it.name == "checkLicense" }.skipWhen("disableLicenseGate", "p0")
             single { it.name == "scheduleRepeatedLicenseCheck" }.skipWhen("disableLicenseGate")
         }
     }
