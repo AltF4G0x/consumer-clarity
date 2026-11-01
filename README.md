@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.1.1-6f42c1.svg" /></a>
+  <a href="CHANGELOG.md"><img alt="version" src="https://img.shields.io/badge/version-1.3.1-6f42c1.svg" /></a>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg" /></a>
   <a href="https://www.android.com/"><img alt="platform" src="https://img.shields.io/badge/platform-Android-3ddc84.svg" /></a>
   <a href="https://github.com/MorpheApp/morphe-manager"><img alt="Morphe" src="https://img.shields.io/badge/works%20with-Morphe-00b894.svg" /></a>
@@ -16,16 +16,17 @@ Consumer Clarity is a set of [Morphe](https://github.com/MorpheApp/morphe-manage
 
 ## What it changes
 
-- **Consistent restaurant and review sorting:** Places entries with a positive `sponsored_rank` after organic entries, then orders restaurants by descending rating and ascending ID. Reviews are ordered newest-first using their ISO date, with ascending ID as a stable tie-breaker. Later pages are processed as they load. Settings also supports hiding sponsored entries, original order, oldest-first reviews, and highest-rated reviews.
-- **Reduce analytics tracking:** Disables confirmed Firebase, Adjust, Perseus and Braze event-logging paths without blocking restaurant, checkout, login or order-tracking requests.
-- **Hide Braze in-app popups:** Prevents Braze promotional in-app messages from being queued or displayed. Functional dialogs and push notifications are unchanged.
-- **Disable Play license gate:** Skips the pairip license check and its repeated scheduler so a modified build can start without Google Play licensing. Other Google-dependent features are unchanged.
-- **Open links in default browser:** Routes links that would open in Talabat's in-app WebView to the default browser when enabled.
-- **Consumer Clarity settings:** Adds a native settings activity through Talabat's About page, with working sponsored/review sorting, analytics, popup, license-gate and external-link toggles, plus developer information and links to the original Facebook and FAQ pages.
+Consumer Clarity now contains **76 independently selectable patches**:
 
-Review text and star values are never modified. Server-provided aggregate ratings cannot be made independently truthful or prevented from changing server-side. Display-ad inventory and sponsored-deals popups outside Braze are not claimed as blocked. Video autoplay is not changed because the available play hook cannot distinguish autoplay from manual playback. No separate Talabat developer menu was found; server-controlled experiments are not presented as safe universal switches.
+- **Discovery:** Demote or hide sponsored restaurants and sort reviews deterministically without changing review text or star values.
+- **Privacy:** Control Firebase, Adjust, Perseus, Braze, advertising identifiers, install attribution, analytics uploads, location, sensors, Bluetooth, NFC, camera, microphone, and legacy storage.
+- **Diagnostics:** Independently control Sentry crashes, traces, profiling, replay, screenshots, breadcrumbs, device context, and Shake Bugs reporting, network inspection, identity, and feedback.
+- **WebView:** Require media gestures, block third-party cookies, disable geolocation, restrict file/content access, use incognito mode, reduce image traffic, disable background audio, enable safe browsing, request dark content, disable form saving, and block popup windows.
+- **Compatibility and navigation:** Disable the Play license gate and open in-app links in the default browser.
 
-Native sorting hooks check the expected original instructions before activating and refuse to run on a mismatched binary.
+The categorized Consumer Clarity page in Talabat's About section only lists patches selected in Morphe. It includes live switches, build-time labels, Calm feed and Maximum privacy presets, sorting controls, reset tools, and developer notes. Native sorting hooks check the expected original instructions before activating and refuse to run on a mismatched binary.
+
+Review text and star values are never modified. Server-provided aggregate ratings cannot be made independently truthful or prevented from changing server-side. Display-ad inventory and sponsored-deals popups outside Braze are not claimed as blocked. Video autoplay is not changed in Flutter because the available play hook cannot distinguish autoplay from manual playback. No separate Talabat developer menu was found; server-controlled experiments are not presented as safe universal switches.
 
 ## Patches
 
@@ -145,20 +146,20 @@ export ANDROID_NDK_HOME=/path/to/android-ndk
 ./gradlew buildAndroid
 ```
 
-The generated bundle is `patches/build/libs/patches-1.1.1.mpp`.
+The generated bundle is `patches/build/libs/patches-1.3.1.mpp`.
 
 Morphe Desktop requires Java 21:
 
 ```bash
 java -jar morphe-desktop-*-all.jar patch \
   --validate \
-  -p patches/build/libs/patches-1.1.1.mpp \
+  -p patches/build/libs/patches-1.3.1.mpp \
   com.talabat.xapk
 ```
 
 ## Verification and limitations
 
-All five patches were built and applied with Morphe validation. The corrected APK completed two cold starts, reached Talabat's country-selection screen, opened the Consumer Clarity settings activity, persisted a preference change, and activated both native sorting hooks. Complete restaurant/review sorting behavior, every screen, and Google-independent features have not been exhaustively verified.
+All 76 patches were built and applied together with Morphe validation and no failed patches. The fully enabled APK opened Talabat and the categorized settings page, displayed all 76 catalog entries, exercised live switches and presets, removed the selected permissions, and activated both native sorting hooks without a new crash. Complete restaurant/review sorting behavior, every screen, and every patch's server-visible effect have not been exhaustively verified.
 
 Bugs and concrete feature requests belong in the [issue tracker](https://github.com/AltF4G0x/consumer-clarity/issues), with the talabat version and patch involved.
 
