@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.5.0...v1.6.0) (2026-11-01)
+
+### ✨ New Features
+
+* Add user experience and accessibility mods ([d3ca923](https://github.com/AltF4G0x/consumer-clarity/commit/d3ca923f03e73b578da88cff9a6cb64f73356582))
+
 ## [1.5.0](https://github.com/AltF4G0x/consumer-clarity/compare/v1.4.0...v1.5.0) (2026-11-01)
 
 ### ✨ New Features

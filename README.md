@@ -31,9 +31,9 @@ Review text and star values are never modified. Server-provided aggregate rating
 ## Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.5.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.5.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;93 patches total
+> **[v1.6.0](https://github.com/AltF4G0x/consumer-clarity/releases/tag/v1.6.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;101 patches total
 <details open>
-<summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;93 patches</summary>
+<summary>📦 talabat&nbsp;&nbsp;•&nbsp;&nbsp;101 patches</summary>
 <br>
 
 **Package name:** `com.talabat`
@@ -132,12 +132,20 @@ Review text and star values are never modified. Server-provided aggregate rating
 | [Hide Shake Bugs report UI](#hide-shake-bugs-report-ui) | Prevents Shake Bugs from opening its feedback and bug-report interface. |  |
 | [Home settings shortcut](#home-settings-shortcut) | Adds a draggable Clarity button to Talabat's home screen for direct access to the patch control center. |  |
 | [Keep screen on](#keep-screen-on) | Keeps the screen awake while Talabat's main activity is visible. |  |
+| [Link safety preview](#link-safety-preview) | Shows the destination before opening a link, with Open, Share, Copy, and Cancel actions. |  |
 | [Open links in default browser](#open-links-in-default-browser) | Routes links that would open in Talabat's in-app WebView to the default browser. Can be toggled in Consumer Clarity settings. |  |
+| [Preferred app language](#preferred-app-language) | Adds System Default, English, Arabic, and Kurdish language choices for Talabat's interface. |  |
 | [Reduce analytics tracking](#reduce-analytics-tracking) | Disables confirmed Firebase, Adjust, Perseus and Braze event logging paths without blocking restaurant, checkout or order-tracking network requests. |  |
 | [Remove ad attribution access](#remove-ad-attribution-access) | Removes access to Android Privacy Sandbox attribution reporting. |  |
 | [Remove ad services identifier access](#remove-ad-services-identifier-access) | Removes access to Android Privacy Sandbox advertising identifiers. |  |
 | [Remove advertising ID permission](#remove-advertising-id-permission) | Removes Android's advertising-identifier permission. Talabat can no longer request the Google advertising ID. |  |
 | [Require WebView media gesture](#require-webview-media-gesture) | Prevents in-app WebView media from starting without a user gesture. Manual playback remains available. |  |
+| [Restaurant rating filter](#restaurant-rating-filter) | Adds a minimum-rating filter for restaurant listings, including 4.0 and 4.5 stars. |  |
+| [Review content filter](#review-content-filter) | Adds minimum-rating and reviews-with-text filters without changing review content. |  |
+| [Settings backup and restore](#settings-backup-and-restore) | Adds JSON export and import for patch preferences without account or order data. |  |
+| [Settings search](#settings-search) | Adds a search field to filter patch controls by name, description, or category. |  |
+| [Share links](#share-links) | Opens Android's share sheet for links instead of displaying them in Talabat's WebView. |  |
+| [Text size](#text-size) | Adds independent text scaling from 85% to 130% without changing device-wide font settings. |  |
 | [Use incognito WebView pages](#use-incognito-webview-pages) | Requests private browsing behavior for in-app WebView pages. Signed-in pages may stop working. |  |
 
 </details>
